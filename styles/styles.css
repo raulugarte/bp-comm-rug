@@ -141,8 +141,9 @@
   /* Additional tokens */
   --type-fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
     monospace;
-  /* RUG */
-  /* --background-color: var(--color-neutral-50); */
+    
+  
+
     --background-color: #f5f5f6;
     
     
