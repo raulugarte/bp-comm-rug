@@ -22,9 +22,12 @@ header .nav-wrapper {
 /* RUG */
 /* Sticky-Verhalten für Navigation nach Scroll */
 .nav-wrapper.sticky {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+
 }
 
 .nav-container {
