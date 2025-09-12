@@ -420,6 +420,14 @@ export default async function decorate(block) {
     }
   });
 
+
+  // RUG
+  const topBar = document.createElement('div');
+  topBar.className = 'top-bar';
+  block.append(topBar);
+  // RUG
+
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
