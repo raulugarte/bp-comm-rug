@@ -202,7 +202,12 @@ header nav .nav-brand img {
   width: 128px; */
   width: 40px; 
   height: auto;
+
 }
+
+.nav-brand .brand-link { display: inline-flex; align-items: center; }
+.nav-brand .brand-link img { display: block; }
+
 
 /* sections */
 header nav .nav-sections {
