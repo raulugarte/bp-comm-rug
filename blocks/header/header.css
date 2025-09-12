@@ -337,7 +337,8 @@ header nav .nav-tools {
   height: 100%;
   gap: var(--spacing-small);
   align-items: center;
-  background: var(--background-color);
+/* background: var(--background-color); */
+  background: #ffffff;
   z-index: 3;
 }
 
