@@ -178,6 +178,54 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  /* RUG */
+// BEGIN: Logo/Brand-Bild immer klickbar machen
+if (navBrand) {
+  // Bild ODER Inline-SVG als Logo zulassen
+  const brandImgOrSvg = navBrand.querySelector('img, svg');
+
+  // bevorzugtes Ziel: Link aus dem Fragment, sonst Home
+  const preferredHref =
+    brandLink?.href ||
+    navBrand.querySelector('a')?.getAttribute('href') ||
+    rootLink('/');
+
+  if (brandImgOrSvg) {
+    // existierendes <a> um das Logo verwenden, falls vorhanden
+    let anchor = brandImgOrSvg.closest('a') || navBrand.querySelector('a');
+
+    if (!anchor) {
+      anchor = document.createElement('a');
+      anchor.href = preferredHref;
+      anchor.className = 'brand-link';
+      anchor.setAttribute('aria-label', 'Home');
+      // Logo in den Link verschieben
+      brandImgOrSvg.replaceWith(anchor);
+      anchor.append(brandImgOrSvg);
+    } else {
+      // sicherstellen, dass das Logo im Link liegt
+      if (!anchor.contains(brandImgOrSvg)) {
+        anchor.append(brandImgOrSvg);
+      }
+      if (!anchor.getAttribute('href')) {
+        anchor.setAttribute('href', preferredHref);
+      }
+      anchor.classList.add('brand-link');
+      anchor.setAttribute('aria-label', anchor.getAttribute('aria-label') || 'Home');
+    }
+  }
+}
+// END
+
+
+
+
+
+
+
+
+
+  
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections
