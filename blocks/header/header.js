@@ -422,16 +422,36 @@ export default async function decorate(block) {
 
 
   // RUG
-  const topBar = document.createElement('div');
-  topBar.className = 'top-bar';
-  block.append(topBar);
-  // RUG
+const topBar = document.createElement('div');
+topBar.className = 'top-bar';
+
+const navWrapper = document.createElement('div');
+navWrapper.className = 'nav-wrapper';
+navWrapper.append(nav);
+
+const container = document.createElement('div');
+container.className = 'nav-container';
+container.append(topBar);
+container.append(navWrapper);
+
+block.append(container);
 
 
-  const navWrapper = document.createElement('div');
-  navWrapper.className = 'nav-wrapper';
-  navWrapper.append(nav);
-  block.append(navWrapper);
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) {
+      navWrapper.classList.add('sticky');
+    } else {
+      navWrapper.classList.remove('sticky');
+    }
+  },
+  { threshold: 0 }
+);
+
+observer.observe(topBar);
+
+  
+// RUG
 
   navWrapper.addEventListener('mouseout', (e) => {
     if (isDesktop.matches && !nav.contains(e.relatedTarget)) {
