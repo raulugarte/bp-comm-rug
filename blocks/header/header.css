@@ -46,6 +46,9 @@ header nav[aria-expanded='true'] {
     gap: 0 32px;
     max-width: 1264px;
     padding: 0 32px;
+
+    background-color: #000000;
+      
   }
 
   header nav[aria-expanded='true'] {
