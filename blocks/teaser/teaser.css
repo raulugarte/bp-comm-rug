@@ -210,6 +210,12 @@ html[lang="ru"] .teaser-wrapper .button-container > a {
 
     .teaser-wrapper .teaser-title {
         padding: 19% 12% 0;
+
+        /* RUG */
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: .01em;
+        line-height: 2.75rem;
     }
     
     .teaser-wrapper .teaser-title-wrapper {
