@@ -17,143 +17,104 @@
       { "component": "text", "name": "linkTitle", "label": "Link Title" }
     ]
   },
-
-
-
-
-
-  
-  {
-        "id": "teaser",
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "value": "Your text will show here.",
-            "name": "teaserBlurb",
-            "label": "Title"
-          },
-          {
-            "component": "select",
-            "name": "teaserStyle",
-            "value": "image",
-            "label": "Style",
-            "valueType": "string",
-            "options": [
-              {
-                "name": "Video",
-                "value": "video"
-              },
-              {
-                "name": "Image",
-                "value": "image"
-              }
-            ]
-          },
-          {
-            "component": "container",
-            "label": "Video Properties",
-            "name": "videoProperties",
-            "valueType": "string",
-            "condition": {
-              "===": [
-                {
-                  "var": "teaserStyle"
-                },
-                "video"
-              ]
+{
+      "id": "teaser",
+      "key-value": true,
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "teaserBlurb",
+          "label": "teaserBlurb",
+          "valueType": "string",
+          "value": "Your text will show here."
+        },
+        {
+          "component": "select",
+          "name": "teaserStyle",
+          "label": "Style",
+          "valueType": "string",
+          "value": "image",
+          "options": [
+            { "name": "Image", "value": "image" },
+            { "name": "Video", "value": "video" }
+          ]
+        },
+        {
+          "component": "container",
+          "name": "videoProperties",
+          "label": "Video Properties",
+          "valueType": "string",
+          "condition": "=== var teaserStyle video",
+          "fields": [
+            {
+              "component": "text",
+              "name": "videoReference",
+              "label": "Video Reference",
+              "valueType": "string",
+              "multi": false,
+              "description": "Provide a URL for the video background."
             },
-            "fields": [
-              {
-                "component": "text",
-                "valueType": "string",
-                "name": "videoReference",
-                "label": "Video Reference",
-                "multi": false,
-                "description": "Provide a URL for the video background."
-              },
-              {
-                "component": "select",
-                "name": "videoBehavior",
-                "value": "autoplay",
-                "label": "Video Behavior (on load)",
-                "valueType": "string",
-                "options": [
-                  {
-                    "name": "Autoplay",
-                    "value": "autoplay"
-                  },
-                  {
-                    "name": "Pause",
-                    "value": "pause"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "component": "container",
-            "label": "Image Properties",
-            "name": "imageProperties",
-            "valueType": "string",
-            "condition": {
-              "===": [
-                {
-                  "var": "teaserStyle"
-                },
-                "image"
+            {
+              "component": "select",
+              "name": "videoBehavior",
+              "label": "Video Behavior (on load)",
+              "valueType": "string",
+              "value": "pause",
+              "options": [
+                { "name": "Autoplay", "value": "autoplay" },
+                { "name": "Pause", "value": "pause" }
               ]
+            }
+          ]
+        },
+        {
+          "component": "container",
+          "name": "imageProperties",
+          "label": "Image Properties",
+          "valueType": "string",
+          "condition": "=== var teaserStyle image",
+          "fields": [
+            {
+              "component": "reference",
+              "name": "imageRef",
+              "label": "Image",
+              "valueType": "string",
+              "multi": false
             },
-            "fields": [
-              {
-                "component": "reference",
-                "valueType": "string",
-                "name": "imageRef",
-                "label": "Image",
-                "multi": false
-              },
-              {
-                "component": "text",
-                "valueType": "string",
-                "name": "alt",
-                "value": "Default alt",
-                "label": "Alt Text"
-              }
-            ]
-          },
-          {
-            "component": "container",
-            "label": "Button Properties",
-            "name": "buttonProperties",
-            "valueType": "string",
-            "fields": [
-              {
-                "component": "text",
-                "valueType": "string",
-                "name": "btn-text",
-                "value": "Button",
-                "label": "Button Text"
-              },
-              {
-                "component": "aem-content",
-                "name": "btn-link",
-                "label": "Button Link",
-                "valueType": "string",
-                "rootPath": "",
-                "description": "Path to linked AEM content"
-              }
-            ]
-          }
-        ]
-      },
-
-
-
-
-
-  
-
-  
+            {
+              "component": "text",
+              "name": "imageAlt",
+              "label": "Alt Text",
+              "valueType": "string",
+              "value": "Default alt"
+            }
+          ]
+        },
+        {
+          "component": "container",
+          "name": "buttonProperties",
+          "label": "Button Properties",
+          "valueType": "string",
+          "fields": [
+            {
+              "component": "text",
+              "name": "btn-text",
+              "label": "Button Text",
+              "valueType": "string",
+              "value": "Button"
+            },
+            {
+              "component": "aem-content",
+              "name": "btn-link",
+              "label": "Button Link",
+              "valueType": "string",
+              "rootPath": "",
+              "description": "Path to linked AEM content"
+            }
+          ]
+        }
+      ]
+    },  
   {
     "id": "title",
     "fields": [
