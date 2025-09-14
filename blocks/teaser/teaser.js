@@ -114,7 +114,7 @@ export default function decorate(block) {
     .find((el) => el.textContent.trim() === 'teaserBlurb');
   const rteElement = rteElementTag?.parentElement?.nextElementSibling;
   const rteContent = rteElement?.querySelector('p')?.innerHTML;
-  const sampleVideo = 'https://publish-p16362-e1620892.adobeaemcloud.com/content/dam/wknd-universal/wknd-banner.mp4';
+  const sampleVideo = 'https://author-p130407-e1279066.adobeaemcloud.com/content/dam/wknd-universal/wknd-banner.mp4';
 
   const properties = readBlockConfig(block);
   const swooshFirst = `${window.hlx.codeBasePath}/icons/teaser_innerswoosh.svg`;
