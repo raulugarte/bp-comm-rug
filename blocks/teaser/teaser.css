@@ -90,7 +90,11 @@ html[dir="rtl"] .teaser-wrapper .video-container .video-pause .video-pause-btn{
     align-items: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    
+    /* RUG
+    transform: translate(-50%, -50%); */
+    translate(-100%, -55%);
+    
     z-index: 4;
     width: 72%;
 }
