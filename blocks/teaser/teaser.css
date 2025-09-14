@@ -111,6 +111,14 @@ html[lang="ru"] .teaser-wrapper .teaser-title {
     padding: 15px 0 32px;
 }
 
+/* RUG */
+.teaser-wrapper .button-container a.button {
+  background-color: #00005f;
+  color: #fff; /* Weißer Text für Kontrast */
+   border-radius: .5rem;
+}
+
+
 html[lang="ru"] .teaser-wrapper .button-container {
     padding: 0;
 }
