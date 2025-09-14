@@ -117,14 +117,21 @@ export default function decorate(block) {
   const sampleVideo = 'https://author-p130407-e1279066.adobeaemcloud.com/content/dam/wknd-universal/wknd-banner.mp4';
 
   const properties = readBlockConfig(block);
+  
+  /* No Swoosh - RUG
   const swooshFirst = `${window.hlx.codeBasePath}/icons/teaser_innerswoosh.svg`;
   const swooshSecond = `${window.hlx.codeBasePath}/icons/teaser_outerswoosh.svg`;
+  */
+  
   const isVideo = (properties.teaserstyle && properties.teaserstyle === 'video');
   const videoAutoplay = (properties.videobehavior && properties.videobehavior === 'autoplay');
   const buttonText = (properties['btn-text']) ? properties['btn-text'] : 'Button';
   const buttonStyle = (properties['btn-style']) ? properties['btn-style'] : 'dark-bg';
   const buttonLink = (properties['btn-link']) ? properties['btn-link'] : '';
   const videoReference = isVideo ? properties.videoreference : sampleVideo;
+  
+  
+  /* No Swoosh - RUG
   const teaser = div({ class: 'teaser-container' },
     isVideo ? createVideoPlayer(videoReference) : createBackgroundImage(properties),
     div({ class: 'teaser-swoosh-wrapper' },
@@ -143,10 +150,33 @@ export default function decorate(block) {
       ),
     ),
   );
+ */
 
-  teaser.querySelector('.teaser-title').innerHTML = properties.teaserblurb ? rteContent : 'Title';
+
+  
+  const teaser = div({ class: 'teaser-container' },
+    isVideo ? createVideoPlayer(videoReference) : createBackgroundImage(properties),
+    div({ class: 'teaser-title-wrapper' },
+      h1({ class: 'teaser-title' }),
+      div({ class: 'button-container' },
+        a({ id: 'button', href: buttonLink, class: `button ${buttonStyle}` },
+         span({ class: 'button-text' }, buttonText),
+        ),
+      ),
+    ),
+  );
+
+  
+
+  // No Swoosh - teaser.querySelector('.teaser-title').innerHTML = properties.teaserblurb ? rteContent : 'Title';
+  teaser.querySelector('.teaser-title').innerHTML = properties.teaserblurb && rteContent ? rteContent : 'Title;
+  
   block.innerHTML = '';
   block.appendChild(teaser);
+
+  
+  
+
 
   // add observer for video and listeners for play/pause
   if (isVideo) observeVideo(block, videoAutoplay);
