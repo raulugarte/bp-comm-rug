@@ -13,23 +13,27 @@
   display: block;
 }
 
-.teaser-overlay {
+.teaser-content {
   position: absolute;
   top: 20px;
   left: 20px;
-  background-color: rgba(255, 255, 255, 0.85); /* leicht transparent */
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 8px;
   max-width: 300px;
 }
 
-.teaser-overlay h2 {
+.teaser-content h2 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #333;
 }
 
-.teaser-overlay .cta-button {
+.teaser-content p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.teaser-content a {
   background-color: #0078d4;
   color: white;
   padding: 10px 16px;
