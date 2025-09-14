@@ -137,7 +137,7 @@ html[lang="ru"] .teaser-wrapper .button-container > a {
 }
 
 
-/*
+
 
 .teaser-wrapper .swoosh-layers {
     position: relative;
@@ -182,7 +182,11 @@ html[lang="ru"] .teaser-wrapper .button-container > a {
 }
 
 
-*/
+/* global für alle Teaser */
+.teaser-wrapper .teaser-swoosh-wrapper {
+  display: none !important;
+}
+
 
 /* Responsive Styles */
 @media (width < 1024px) {
