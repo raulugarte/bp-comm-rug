@@ -117,8 +117,8 @@ export default function decorate(block) {
   const sampleVideo = 'https://author-p130407-e1279066.adobeaemcloud.com/content/dam/wknd-universal/wknd-banner.mp4';
 
   const properties = readBlockConfig(block);
-  const swooshFirst = `${window.hlx.codeBasePath}/icons/teaser_innerswoosh.svg`;
-  const swooshSecond = `${window.hlx.codeBasePath}/icons/teaser_outerswoosh.svg`;
+  // const swooshFirst = `${window.hlx.codeBasePath}/icons/teaser_innerswoosh.svg`;
+  // const swooshSecond = `${window.hlx.codeBasePath}/icons/teaser_outerswoosh.svg`;
   const isVideo = (properties.teaserstyle && properties.teaserstyle === 'video');
   const videoAutoplay = (properties.videobehavior && properties.videobehavior === 'autoplay');
   const buttonText = (properties['btn-text']) ? properties['btn-text'] : 'Button';
