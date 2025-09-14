@@ -77,7 +77,14 @@ html[dir="rtl"] .teaser-wrapper .video-container .video-pause .video-pause-btn{
 }
 
 .teaser-wrapper .teaser-title-wrapper {
-    position: absolute;
+
+    /* RUG
+    position: absolute; */
+    background-color: rgb(192, 208, 40);
+    border-radius: 20px;
+    max-width: 544px;
+
+    
     display: flex;
     flex-direction: column;
     align-items: center;
