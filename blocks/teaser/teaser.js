@@ -106,6 +106,7 @@ function attachListeners() {
 }
 
 export default function decorate(block) {
+  block.parentElement?.classList.add('teaser-wrapper');
   const rteElementTag = Array.from(block.querySelectorAll('p'))
     .find((el) => el.textContent.trim() === 'teaserBlurb');
   const rteElement = rteElementTag?.parentElement?.nextElementSibling;
