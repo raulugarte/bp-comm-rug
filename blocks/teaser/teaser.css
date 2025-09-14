@@ -1,305 +1,111 @@
+/* ===== Overlay Box Teaser — Verfeinerungen ===== */
 
+/* Feinere Dimensionen und Anschläge (Desktop) */
 .teaser-wrapper {
-    width: 100%;
+  --overlay-bg: rgb(192, 208, 40);   /* Kachel-Hintergrund (dein Beispiel) */
+  --title-color: rgb(0, 0, 95);      /* Titel-Farbe (dein Beispiel) */
+  --overlay-padding: 28px;
+  --overlay-radius: 14px;
+  --overlay-offset-x: 64px;          /* Abstand der Box vom linken Rand */
+  --overlay-maxw: 560px;             /* maximale Breite der Box */
+  --overlay-shadow: 0 10px 28px rgb(0 0 0 / 20%);
 }
 
+/* Container-Höhen feinjustieren */
 .teaser-wrapper .teaser-container {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 100%;
-    height: 538px;
-    position: relative;
-    align-items: center;
+  min-height: 560px;
 }
 
-.teaser-wrapper .inactive {
-    display: none;
-    visibility: hidden;
-}
-
-.teaser-wrapper .background-image, .teaser-wrapper .video-container {
-    width: 100%;
-    position: absolute;
-    height: 482px;
-}
-
-.teaser-wrapper .video-container .video-play-btn, .teaser-wrapper .video-container .video-pause-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: var(--dark-color);
-    color: white;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 2;
-    border: 2px solid transparent;
-}
-
-.video-container .video-play:hover, .video-container .video-pause:hover {
-    border-color: #169af3;
-}
-
-html[dir="rtl"] .teaser-wrapper .video-container .video-play .video-play-btn,
-html[dir="rtl"] .teaser-wrapper .video-container .video-pause .video-pause-btn{
-    right: 20px;
-    left: unset;
-}
-
-.video-container .video-play .controls, .video-container .video-pause .controls {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(313deg) brightness(120%) contrast(100%);
-}
-    
-.video-container .video-pause .controls.pause-icon {
-    height: 34px;
-}
-    
-.teaser-wrapper video {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-}
-
-.teaser-wrapper .teaser-background {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    border-radius: 10px;
-}
-
+/* Titel/CTA-Wrapper links vertikal mittig */
 .teaser-wrapper .teaser-title-wrapper {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 4;
-    width: 72%;
+  position: absolute;
+  top: 50%;
+  left: var(--overlay-offset-x);
+  transform: translateY(-50%);
+  z-index: 4;
+  max-width: var(--overlay-maxw);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: var(--overlay-padding);
+  border-radius: var(--overlay-radius);
+  background: var(--overlay-bg);
+  box-shadow: var(--overlay-shadow);
 }
 
+/* Titel */
 .teaser-wrapper .teaser-title {
-    font-family: var(--body-font-family);
-    font-size: var(--font-size-1000);
-    color: var(--text-light);
-    text-align: center;
-    padding-top: 15%;
-    text-transform:uppercase;
-    font-weight: normal;
-    margin: 0;
-    line-height: 40px;
+  margin: 0;
+  color: var(--title-color);
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  font-size: clamp(28px, 4.2vw, 48px);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
-html[lang="ru"] .teaser-wrapper .teaser-title {
-    padding: 0;
-    font-size: 1.5rem;
-    max-width: 275px;
+/* CTA-Button – „primary-light-background“-Anmutung */
+.teaser-wrapper .button-container { margin-top: 4px; }
+
+.teaser-wrapper .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  background: #fff;
+  color: var(--title-color);
+  border: 2px solid var(--title-color);
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, border-color .12s ease;
 }
 
-
-.teaser-wrapper .button-container {
-    padding: 15px 0 32px;
+.teaser-wrapper .button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 16%);
+  background: #f6f8ff;
 }
 
-html[lang="ru"] .teaser-wrapper .button-container {
-    padding: 0;
+.teaser-wrapper .button:focus { outline: 2px solid #169af3; outline-offset: 2px; }
+
+/* Bild/Video nach wie vor 100% flächig */
+.teaser-wrapper .background-image,
+.teaser-wrapper .video-container {
+  position: absolute;
+  inset: 0;
 }
 
-html[lang="ru"] .teaser-wrapper .button-container > a {
-    margin-bottom: 0;
+/* „Swoosh“-Layer des alten Teasers ausblenden */
+.teaser-wrapper .teaser-swoosh-wrapper { display: none !important; }
+
+/* === Responsive Anpassungen === */
+@media (max-width: 1199.98px) {
+  .teaser-wrapper { --overlay-offset-x: 48px; --overlay-maxw: 520px; }
+  .teaser-wrapper .teaser-container { min-height: 520px; }
 }
 
-.teaser-wrapper .teaser-swoosh-wrapper {
-    width: 595px;
-    height: 595px;
-    margin-right: 32px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    align-content: center;
+@media (max-width: 991.98px) {
+  .teaser-wrapper { --overlay-offset-x: 24px; --overlay-padding: 20px; }
+  .teaser-wrapper .teaser-container { min-height: 460px; }
+  /* Kachel lieber unten über dem Bild andocken */
+  .teaser-wrapper .teaser-title-wrapper {
+    top: auto; bottom: 24px; left: var(--overlay-offset-x);
+    transform: none;
+    right: 24px;              /* „atmen“ lassen */
+    max-width: none;
+  }
 }
 
-.teaser-wrapper .teaser-swoosh-wrapper a, 
-.teaser-wrapper .teaser-swoosh-wrapper a.button:any-link,
-.teaser-wrapper .teaser-swoosh-wrapper button {
-    color: var(--text-light);
-}
-.teaser-wrapper .teaser-swoosh-wrapper a::after,
-.teaser-wrapper .teaser-swoosh-wrapper a.button::after,
-.teaser-wrapper .teaser-swoosh-wrapper button::after {
-    color: var(--text-light);
+@media (max-width: 551.98px) {
+  .teaser-wrapper .teaser-container { min-height: 400px; }
+  .teaser-wrapper .teaser-title { font-size: 22px; }
 }
 
-
-.teaser-wrapper .swoosh-layers {
-    position: relative;
-    width: 100%;
-    height: 518px;
-    overflow: visible;
-}
-
-.teaser-wrapper .swoosh-layers .swoosh {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    transform: translate(-50%, -50%);
-    object-fit: contain;
-    max-width: unset;
-}
-
-.teaser-wrapper .swoosh-layers .swoosh.first {
-    height: 538px;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.teaser-wrapper .swoosh-layers .swoosh.second {
-    z-index: 3;
-    height: auto;
-    width: 616px;
-    opacity: 0.8;
-}
-
-.teaser-wrapper .swoosh-bg {
-    border-radius: 50%;
-    background-color: var(--dark-color-opacity);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    height: 85%;
-    z-index: 1;
-    position: absolute;
-}
-
-
-
-
-/* Responsive Styles */
-@media (width < 1024px) {
-    .teaser-wrapper .teaser-swoosh-wrapper {
-        margin-right: 16px;
-        display: none;
-        visibility: hidden;
-    }
-
-    .teaser-wrapper .teaser-title {
-        padding: 19% 12% 0;
-    }
-    
-    .teaser-wrapper .teaser-title-wrapper {
-     width: 60%;
-    }
-}
-
-@media (width < 768px) {
-    .teaser-wrapper {
-        margin-top: 20px;
-    }
-
-    .teaser-wrapper .teaser-swoosh-wrapper {
-        margin-right: unset;
-        width: 90vw;
-        height: 90vw;
-    }
-
-    .teaser-wrapper .swoosh-layers {
-        height: 100%;
-    }
-
-    .teaser-wrapper .swoosh.first {
-        width: 85vw;
-        height: auto;
-    }
-
-    .teaser-wrapper .swoosh.second {
-        display: none;
-        visibility: hidden;
-    }
-
-    .teaser-wrapper .teaser-container {
-        justify-content: center;
-    }
-
-    .teaser-wrapper .teaser-title-wrapper {
-        margin-top: 1.5%;
-        width: 70%;
-    }
-
-    .teaser-wrapper .teaser-title {
-        font-size: 5vw;
-    }
-
-    .teaser-wrapper .video-container {
-        display: block;
-        visibility: visible;
-    }
-
-    .teaser-wrapper .background-image {
-        display: block;
-        visibility: visible;
-    }
-
-    .teaser-wrapper .button {
-        width: 100%;
-    }
-
-    .teaser-wrapper .button-text {
-        font-size: 3.5vw;
-    }
-
-    .teaser-wrapper .button-container {
-        padding: 15px 0 32px;
-    }
-
-}
-
-@media (width <= 390px) {
-    main .section > div.teaser-wrapper {
-        padding: 0;
-        margin-top: 0;
-    }
-    
-    .teaser-wrapper {
-        padding: 0;
-    }
-    
-    .teaser-wrapper .teaser-title {
-        font-size: 22px;
-    }
-
-    .teaser-wrapper > .teaser.block > .teaser-container {
-        height: 471px;
-        width: auto;
-        overflow: hidden;
-    }
-
-    .teaser-wrapper > .teaser.block > .teaser-container > .teaser-swoosh-wrapper {
-        height: 100%;
-        width: 100%;
-        margin-left: -13.5px;
-    }
-
-    .teaser-wrapper > .teaser.block > .teaser-container > .teaser-swoosh-wrapper > .swoosh-layers {
-        margin-left: -2.5px;
-    }
-
-    .teaser-wrapper > .teaser.block > .teaser-container > .teaser-swoosh-wrapper > .swoosh-bg {
-        height: 410px;
-        width: 410px;
-        margin-left: -2.5px;
-    }
-
-    .teaser-wrapper .swoosh-layers > .swoosh.first {
-        height: 425px;
-        width: 425px;
-    }
-    
+/* RTL-Unterstützung */
+html[dir="rtl"] .teaser-wrapper .teaser-title-wrapper {
+  left: auto; right: var(--overlay-offset-x);
 }
