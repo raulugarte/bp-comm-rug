@@ -182,7 +182,9 @@
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "name": "Teaser"
+              "name": "Teaser",
+              "model": "teaser",
+              "key-value": true
             }
           }
         }
