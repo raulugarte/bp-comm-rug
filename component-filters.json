@@ -19,12 +19,12 @@
       "button",
       "title",
       "hero",
-      "teaser",
       "cards",
       "columns",
       "fragment",
       "product-teaser",
-      "product-recommendations"
+      "product-recommendations",
+      "teaser"
     ]
   },
   {
@@ -35,12 +35,12 @@
       "button",
       "title",
       "hero",
-      "teaser",
       "cards",
       "columns",
       "fragment",
       "product-teaser",
-      "product-recommendations"
+      "product-recommendations",
+      "teaser"
     ]
   },
   {
