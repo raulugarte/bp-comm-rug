@@ -70,6 +70,10 @@ html[dir="rtl"] .teaser-wrapper .video-container .video-pause .video-pause-btn{
     width: 100%;
     position: relative;
     border-radius: 10px;
+
+    /* RUG */
+    object-fit: cover;
+    
 }
 
 .teaser-wrapper .teaser-title-wrapper {
