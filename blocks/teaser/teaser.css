@@ -1,111 +1,41 @@
-/* ===== Overlay Box Teaser — Verfeinerungen ===== */
-
-/* Feinere Dimensionen und Anschläge (Desktop) */
-.teaser-wrapper {
-  --overlay-bg: rgb(192, 208, 40);   /* Kachel-Hintergrund (dein Beispiel) */
-  --title-color: rgb(0, 0, 95);      /* Titel-Farbe (dein Beispiel) */
-  --overlay-padding: 28px;
-  --overlay-radius: 14px;
-  --overlay-offset-x: 64px;          /* Abstand der Box vom linken Rand */
-  --overlay-maxw: 560px;             /* maximale Breite der Box */
-  --overlay-shadow: 0 10px 28px rgb(0 0 0 / 20%);
+.teaser-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
-/* Container-Höhen feinjustieren */
-.teaser-wrapper .teaser-container {
-  min-height: 560px;
+.teaser-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Titel/CTA-Wrapper links vertikal mittig */
-.teaser-wrapper .teaser-title-wrapper {
+.teaser-overlay {
   position: absolute;
-  top: 50%;
-  left: var(--overlay-offset-x);
-  transform: translateY(-50%);
-  z-index: 4;
-  max-width: var(--overlay-maxw);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  padding: var(--overlay-padding);
-  border-radius: var(--overlay-radius);
-  background: var(--overlay-bg);
-  box-shadow: var(--overlay-shadow);
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.85); /* leicht transparent */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
 }
 
-/* Titel */
-.teaser-wrapper .teaser-title {
-  margin: 0;
-  color: var(--title-color);
-  font-family: var(--body-font-family, system-ui, sans-serif);
-  font-size: clamp(28px, 4.2vw, 48px);
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  text-transform: none;
+.teaser-overlay h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
-/* CTA-Button – „primary-light-background“-Anmutung */
-.teaser-wrapper .button-container { margin-top: 4px; }
-
-.teaser-wrapper .button {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1;
+.teaser-overlay .cta-button {
+  background-color: #0078d4;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
   text-decoration: none;
-  background: #fff;
-  color: var(--title-color);
-  border: 2px solid var(--title-color);
-  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, border-color .12s ease;
-}
-
-.teaser-wrapper .button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 22px rgb(0 0 0 / 16%);
-  background: #f6f8ff;
-}
-
-.teaser-wrapper .button:focus { outline: 2px solid #169af3; outline-offset: 2px; }
-
-/* Bild/Video nach wie vor 100% flächig */
-.teaser-wrapper .background-image,
-.teaser-wrapper .video-container {
-  position: absolute;
-  inset: 0;
-}
-
-/* „Swoosh“-Layer des alten Teasers ausblenden */
-.teaser-wrapper .teaser-swoosh-wrapper { display: none !important; }
-
-/* === Responsive Anpassungen === */
-@media (max-width: 1199.98px) {
-  .teaser-wrapper { --overlay-offset-x: 48px; --overlay-maxw: 520px; }
-  .teaser-wrapper .teaser-container { min-height: 520px; }
-}
-
-@media (max-width: 991.98px) {
-  .teaser-wrapper { --overlay-offset-x: 24px; --overlay-padding: 20px; }
-  .teaser-wrapper .teaser-container { min-height: 460px; }
-  /* Kachel lieber unten über dem Bild andocken */
-  .teaser-wrapper .teaser-title-wrapper {
-    top: auto; bottom: 24px; left: var(--overlay-offset-x);
-    transform: none;
-    right: 24px;              /* „atmen“ lassen */
-    max-width: none;
-  }
-}
-
-@media (max-width: 551.98px) {
-  .teaser-wrapper .teaser-container { min-height: 400px; }
-  .teaser-wrapper .teaser-title { font-size: 22px; }
-}
-
-/* RTL-Unterstützung */
-html[dir="rtl"] .teaser-wrapper .teaser-title-wrapper {
-  left: auto; right: var(--overlay-offset-x);
+  font-weight: bold;
+  display: inline-block;
 }
