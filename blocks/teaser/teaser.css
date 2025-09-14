@@ -137,6 +137,8 @@ html[lang="ru"] .teaser-wrapper .button-container > a {
 }
 
 
+/*
+
 .teaser-wrapper .swoosh-layers {
     position: relative;
     width: 100%;
@@ -180,7 +182,7 @@ html[lang="ru"] .teaser-wrapper .button-container > a {
 }
 
 
-
+*/
 
 /* Responsive Styles */
 @media (width < 1024px) {
