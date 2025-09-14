@@ -168,8 +168,7 @@ export default function decorate(block) {
 
   
 
-  // No Swoosh - teaser.querySelector('.teaser-title').innerHTML = properties.teaserblurb ? rteContent : 'Title';
-  teaser.querySelector('.teaser-title').innerHTML = properties.teaserblurb && rteContent ? rteContent : 'Title;
+  teaser.querySelector('.teaser-title').innerHTML = properties.teaserblurb ? rteContent : 'Title';
   
   block.innerHTML = '';
   block.appendChild(teaser);
