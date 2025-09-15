@@ -14,6 +14,8 @@
 .cards > ul > li {
   border: var(--shape-border-width-1) solid var(--color-neutral-500);
   background-color: var(--background-color);
+    /* RUG */
+    border-radius: 10px;
 }
 
 .cards .cards-card-body {
