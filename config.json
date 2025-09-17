@@ -1,8 +1,8 @@
 {
   "public": {
     "default": {
-      "commerce-core-endpoint": "https://com576.adobedemo.com/graphql",
-      "commerce-endpoint": "https://com576.adobedemo.com/cs-graphql",
+      "commerce-core-endpoint": "https://na1-sandbox.api.commerce.adobe.com/GAqw19KoDHAXVpvt92vgHd/graphql",
+      "commerce-endpoint": "https://na1-sandbox.api.commerce.adobe.com/GAqw19KoDHAXVpvt92vgHd/graphql",
       "headers": {
         "all": {
           "Store": "default"
@@ -11,31 +11,28 @@
           "Magento-Customer-Group": "b6589fc6ab0dc82cf12099d1c2d40ab994e8410c",
           "Magento-Store-Code": "main_website_store",
           "Magento-Store-View-Code": "default",
-          "Magento-Website-Code": "base",
-          "x-api-key": "fdc35576f0e24628a57c5159f89ee88b", 
-                        
-          "Magento-Environment-Id": "75925ac7-5546-4012-a062-f89edb5cb7ec"
+          "Magento-Website-Code": "base"
         }
       },
       "analytics": {
         "base-currency-code": "USD",
-        "environment": "Production",
-        "environment-id": "75925ac7-5546-4012-a062-f89edb5cb7ec",
+        "environment": "Testing",
+        "environment-id": "GAqw19KoDHAXVpvt92vgHd",
         "store-code": "main_website_store",
-        "store-id": 1,
-        "store-name": "Main Website Store",
-        "store-url": "https://com394.adobedemo.com",
+        "store-id": "main_website_store",
+        "store-name": "Default Store View",
+        "store-url": "https://coresaas-subgraph-external:8000/GAqw19KoDHAXVpvt92vgHd/",
         "store-view-code": "default",
-        "store-view-id": 1,
+        "store-view-id": "default",
         "store-view-name": "Default Store View",
         "website-code": "base",
-        "website-id": 1,
+        "website-id": "base",
         "website-name": "Main Website"
       },
       "plugins": {
         "picker": {
-           "rootCategory": "2"
-         }
+          "rootCategory": "2"
+        }
       }
     }
   }
