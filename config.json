@@ -1,8 +1,8 @@
 {
   "public": {
     "default": {
-      "commerce-core-endpoint": "https://com394.adobedemo.com/graphql",
-      "commerce-endpoint": "https://com394.adobedemo.com/cs-graphql",
+      "commerce-core-endpoint": "https://com576.adobedemo.com/graphql",
+      "commerce-endpoint": "https://com576.adobedemo.com/cs-graphql",
       "headers": {
         "all": {
           "Store": "default"
@@ -12,14 +12,14 @@
           "Magento-Store-Code": "main_website_store",
           "Magento-Store-View-Code": "default",
           "Magento-Website-Code": "base",
-          "x-api-key": "2f1ed5af26ac4be3842ee6e707d2e57e",
-          "Magento-Environment-Id": "66c9970e-0a1a-4a44-a4ea-5a61c9a987c0"
+          "x-api-key": "bd51f4a0e28641ed9117e6b4f51a5e69",
+          "Magento-Environment-Id": "75925ac7-5546-4012-a062-f89edb5cb7ec"
         }
       },
       "analytics": {
         "base-currency-code": "USD",
         "environment": "Production",
-        "environment-id": "66c9970e-0a1a-4a44-a4ea-5a61c9a987c0",
+        "environment-id": "75925ac7-5546-4012-a062-f89edb5cb7ec",
         "store-code": "main_website_store",
         "store-id": 1,
         "store-name": "Main Website Store",
