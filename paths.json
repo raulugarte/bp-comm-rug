@@ -1,12 +1,14 @@
 {
   "mappings": [
-    "/content/aem-bp-comm-rug/:/",
+    "/content/aem-bp-comm-rug/language-masters/en:/en/",
+    "/content/aem-bp-comm-rug/language-masters/de:/de/",
     "/content/aem-bp-comm-rug/configuration:/.helix/config.json",
     "/content/aem-bp-comm-rug/headers:/.helix/headers.json",
     "/content/aem-bp-comm-rug/metadata:/metadata.json",
     "/content/aem-bp-comm-rug.resource/enrichment/enrichment.json:/enrichment/enrichment.json"
   ],
   "includes": [
-    "/content/aem-bp-comm-rug/"
+    "/content/aem-bp-comm-rug/language-masters/en/",
+    "/content/aem-bp-comm-rug/language-masters/de/"
   ]
 }
