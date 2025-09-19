@@ -131,11 +131,7 @@ export default async function decorate(block) {
                 <p data-aue-prop="cfdescription" data-aue-label="Description" data-aue-type="richtext" class='cfdescription'>${
                   cfReq?.description?.plaintext
                 }</p>
-                <a href="${cfReq?.ctaUrl ? cfReq.ctaUrl : '#'}" data-aue-prop="ctaUrl" data-aue-label="Button Link/URL" data-aue-type="reference"  target="_blank" rel="noopener" data-aue-filter="page">
-                  <span data-aue-prop="ctalabel" data-aue-label="Button Label" data-aue-type="text">
-                    ${cfReq?.ctalabel}
-                  </span>
-                </a>
+
             </div>
             <div class='banner-logo'>
             </div>
