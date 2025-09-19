@@ -78,7 +78,7 @@ export default async function decorate(block) {
           offer = await response.json();
 			*/
 
-				let recipe-cf;
+				let 'recipe-cf';
         try {
           recipe-cf = await response.json();
 			
