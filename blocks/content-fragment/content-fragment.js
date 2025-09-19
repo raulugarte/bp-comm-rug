@@ -10,7 +10,10 @@ export default async function decorate(block) {
   const CONFIG = {
     WRAPPER_SERVICE_URL: 'https://prod-31.westus.logic.azure.com:443/workflows/2660b7afa9524acbae379074ae38501e/triggers/manual/paths/invoke',
     WRAPPER_SERVICE_PARAMS: 'api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=kfcQD5S7ovej9RHdGZFVfgvA-eEqNlb6r_ukuByZ64o',
+		/* RUG 
     GRAPHQL_QUERY: '/graphql/execute.json/wknd-universal/CTAByPath',
+		*/
+		GRAPHQL_QUERY: '/graphql/execute.json/aldi-rug/RecipeByPath',
     EXCLUDED_THEME_KEYS: new Set(['brandSite', 'brandLogo'])
   };
 	
@@ -21,7 +24,11 @@ export default async function decorate(block) {
 	
 	//const aempublishurl = getMetadata('publishurl') || '';
 	
-  const persistedquery = '/graphql/execute.json/wknd-universal/CTAByPath';
+  /* RUG 
+	const persistedquery = '/graphql/execute.json/wknd-universal/CTAByPath';
+ 	*/
+	const persistedquery = '/graphql/execute.json/aldi-rug/RecipeByPath';
+	
   const contentPath = block.querySelector(':scope div:nth-child(1) > div a')?.textContent?.trim();
   const variationname = block.querySelector(':scope div:nth-child(2) > div')?.textContent?.trim()?.toLowerCase()?.replace(' ', '_') || 'master';
   block.innerHTML = '';
@@ -65,11 +72,18 @@ export default async function decorate(block) {
           return; // Exit early if response is not ok
         } 
 
+			/* RUG 
         let offer;
         try {
           offer = await response.json();
+			*/
+
+				let recipe-cf;
+        try {
+          recipe-cf = await response.json();
+			
         } catch (parseError) {
-					console.error('Error parsing offer JSON from response:', {
+					console.error('Error parsing recipe-cf JSON from response:', {
 	          error: error.message,
 	          stack: error.stack,
 	          contentPath,
@@ -80,11 +94,17 @@ export default async function decorate(block) {
           return;
         }
 
+				/* RUG
         const cfReq = offer?.data?.ctaByPath?.item;
+					*/
+				const cfReq = recipe-cf?.data?.RecipeByPath?.item;
 
         if (!cfReq) {
           console.error('Error parsing response from GraphQL request - no valid data found', {
+						/* RUG
             response: offer,
+						*/
+						response: recipe-cf,
             contentPath,
             variationname
           });
@@ -94,18 +114,18 @@ export default async function decorate(block) {
         // Set up block attributes
         const itemId = `urn:aemconnection:${contentPath}/jcr:content/data/${variationname}`;
         block.setAttribute('data-aue-type', 'container');
-        const imgUrl = isAuthor ? cfReq.bannerimage?._authorUrl : cfReq.bannerimage?._publishUrl;
+        const imgUrl = isAuthor ? cfReq.recipeImage?._authorUrl : cfReq.recipeImage?._publishUrl;
 
         block.innerHTML = `
-        <div class='banner-content block' data-aue-resource=${itemId} data-aue-label="Offer Content fragment" data-aue-type="reference" data-aue-filter="contentfragment">
+        <div class='banner-content block' data-aue-resource=${itemId} data-aue-label="Recipe Content fragment" data-aue-type="reference" data-aue-filter="contentfragment">
           <div class='banner-detail' style="background-image: linear-gradient(90deg,rgba(0,0,0,0.6), rgba(0,0,0,0.1) 80%) ,url(${
             imgUrl
           });" data-aue-prop="bannerimage" data-aue-label="Main Image" data-aue-type="media" >
                 <p data-aue-prop="cftitle" data-aue-label="Title" data-aue-type="text" class='cftitle'>${
-                  cfReq?.title
+                  cfReq?.recipeTitle
                 }</p>
                 <p data-aue-prop="cfsubtitle" data-aue-label="SubTitle" data-aue-type="text" class='cfsubtitle'>${
-                cfReq?.subtitle
+                cfReq?.recipeDirections?.plaintext
                 }</p>
                 
                 <p data-aue-prop="cfdescription" data-aue-label="Description" data-aue-type="richtext" class='cfdescription'>${
