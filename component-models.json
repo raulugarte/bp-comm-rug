@@ -18,7 +18,36 @@
     ]
   },
 
-
+{
+  "id": "contentfragment",
+  "fields": [
+    {
+      "component": "aem-content",
+      "name": "reference",
+      "label": "Reference",
+      "valueType": "string",
+      "required": true,
+      "validation": {
+        "rootPath": "/content/dam"
+      }
+    },
+    {
+      "component": "select",
+      "name": "style",
+      "label": "Choose Variation",
+      "options": [
+        {
+          "name": "Master",
+          "value": "master"
+        },
+        {
+          "name": "Mobile",
+          "value": "mobile"
+        }
+      ]
+    }
+  ]
+},
 
   {
     "id": "teaser",
