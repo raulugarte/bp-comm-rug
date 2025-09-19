@@ -78,12 +78,12 @@ export default async function decorate(block) {
           offer = await response.json();
 			*/
 
-				let 'recipe-cf';
+				let recipecf;
         try {
-          recipe-cf = await response.json();
+          recipecf = await response.json();
 			
         } catch (parseError) {
-					console.error('Error parsing recipe-cf JSON from response:', {
+					console.error('Error parsing recipecf JSON from response:', {
 	          error: error.message,
 	          stack: error.stack,
 	          contentPath,
@@ -97,14 +97,14 @@ export default async function decorate(block) {
 				/* RUG
         const cfReq = offer?.data?.ctaByPath?.item;
 					*/
-				const cfReq = recipe-cf?.data?.RecipeByPath?.item;
+				const cfReq = recipecf?.data?.RecipeByPath?.item;
 
         if (!cfReq) {
           console.error('Error parsing response from GraphQL request - no valid data found', {
 						/* RUG
             response: offer,
 						*/
-						response: recipe-cf,
+						response: recipecf,
             contentPath,
             variationname
           });
