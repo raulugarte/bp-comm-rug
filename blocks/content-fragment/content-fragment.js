@@ -97,7 +97,7 @@ export default async function decorate(block) {
 				/* RUG
         const cfReq = offer?.data?.ctaByPath?.item;
 					*/
-				const cfReq = recipecf?.data?.recipeByPath?.item;
+				const cfReq = recipecf?.data?.recipeCFByPath?.item;
 
         if (!cfReq) {
           console.error('Error parsing response from GraphQL request - no valid data found', {
