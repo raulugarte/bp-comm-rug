@@ -13,7 +13,7 @@ export default async function decorate(block) {
 		/* RUG 
     GRAPHQL_QUERY: '/graphql/execute.json/wknd-universal/CTAByPath',
 		*/
-		GRAPHQL_QUERY: '/graphql/execute.json/aldi-rug/RecipeByPath',
+		GRAPHQL_QUERY: '/graphql/execute.json/aldi-rug/recipe2ByPath',
     EXCLUDED_THEME_KEYS: new Set(['brandSite', 'brandLogo'])
   };
 	
@@ -27,7 +27,7 @@ export default async function decorate(block) {
   /* RUG 
 	const persistedquery = '/graphql/execute.json/wknd-universal/CTAByPath';
  	*/
-	const persistedquery = '/graphql/execute.json/aldi-rug/RecipeByPath';
+	const persistedquery = '/graphql/execute.json/aldi-rug/recipe2ByPath';
 	
   const contentPath = block.querySelector(':scope div:nth-child(1) > div a')?.textContent?.trim();
   const variationname = block.querySelector(':scope div:nth-child(2) > div')?.textContent?.trim()?.toLowerCase()?.replace(' ', '_') || 'master';
@@ -97,7 +97,7 @@ export default async function decorate(block) {
 				/* RUG
         const cfReq = offer?.data?.ctaByPath?.item;
 					*/
-				const cfReq = recipecf?.data?.recipeCFByPath?.item;
+				const cfReq = recipecf?.data?.recipe2ByPath?.item;
 
         if (!cfReq) {
           console.error('Error parsing response from GraphQL request - no valid data found', {
