@@ -23,6 +23,9 @@ export default async function decorate(block) {
 
   const itemId = `urn:aemconnection:${offerpath}/jcr:content/data/master`;
 
+
+  /* RUG 
+  
   block.innerHTML = `
   <div class='banner-content' data-aue-resource=${itemId} data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
       <div data-aue-prop="heroImage" data-aue-label="hero image" data-aue-type="media" class='banner-detail' style="background-image: linear-gradient(90deg,rgba(0,0,0,0.6), rgba(0,0,0,0.1) 80%) ,url(${aempublishurl + cfReq.heroImage._dynamicUrl});">
@@ -34,4 +37,31 @@ export default async function decorate(block) {
       </div>
   </div>
 `;
+*/
+
+  // Compose _dynamicUrl, assuming it exists
+  const imageBase = aempublishurl + cfReq.heroImage._dynamicUrl;
+
+    block.innerHTML = `
+  <div class="hero-wrapper">
+    <div class="hero block" data-block-name="hero" data-block-status="loaded">
+      <div>
+        <div>
+          <picture>
+            <source type="image/webp" srcset="${imageBase}&width=2000&format=webp&optimize=medium" media="(min-width: 600px)">
+            <source type="image/webp" srcset="${imageBase}&width=750&format=webp&optimize=medium">
+            <source type="image/jpeg" srcset="${imageBase}&width=2000&format=jpg&optimize=medium" media="(min-width: 600px)">
+            <img loading="eager" alt="${altText}" src="${imageBase}&width=750&format=jpg&optimize=medium" width="2623" height="878">
+          </picture>
+        </div>
+      </div>
+      <div>
+        <div>
+          <!-- Add your text or action buttons here if needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+
 }
