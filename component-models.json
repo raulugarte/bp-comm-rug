@@ -23,9 +23,9 @@
   "fields": [
     {
         "component": "aem-content-fragment",
-        "name": "offerpath",
+        "name": "reference",
         "value": "",
-        "label": "Offer Content Fragment path",
+        "label": "Content Fragment path",
         "valueType": "string"
     },
     {
