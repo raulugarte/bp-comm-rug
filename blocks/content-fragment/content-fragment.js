@@ -6,7 +6,7 @@ import { isAuthorEnvironment, moveInstrumentation } from '../../scripts/scripts.
 
 /**
  *
- * @param {Element} block
+ //* @param {Element} block
  *
 
 
