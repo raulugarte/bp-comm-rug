@@ -22,13 +22,11 @@
   "id": "contentfragment",
   "fields": [
     {
-      "component": "aem-content",
-      "name": "reference",
-      "label": "Reference",
-      "valueType": "string",
-      "required": true,
-      "validation": {
-        "rootPath": "/content/dam"
+        "component": "aem-content-fragment",
+        "name": "offerpath",
+        "value": "",
+        "label": "Offer Content Fragment path",
+        "valueType": "string"
       }
     },
     {
