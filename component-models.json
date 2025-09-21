@@ -20,22 +20,33 @@
 
   {
     "id": "contentfragment",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "offerpath",
-        "value": "",
-        "label": "Content Fragment path",
-        "valueType": "string"
-      },
-      {
-        "component": "text-input",
-        "name": "variation",
-        "value": "",
-        "label": "Variation",
-        "valueType": "string"
+  "fields": [
+    {
+      "component": "aem-content",
+      "name": "offerpath",
+      "label": "Reference",
+      "valueType": "string",
+      "required": true,
+      "validation": {
+        "rootPath": "/content/dam"
       }
-    ]
+    },
+    {
+      "component": "select",
+      "name": "style",
+      "label": "Choose Variation",
+      "options": [
+        {
+          "name": "Master",
+          "value": "master"
+        },
+        {
+          "name": "Mobile",
+          "value": "mobile"
+        }
+      ]
+    }
+  ]
   },
 
   {
