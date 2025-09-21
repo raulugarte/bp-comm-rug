@@ -43,6 +43,7 @@ export default async function decorate(block) {
   const imageBase = aempublishurl + cfReq.heroImage._dynamicUrl;
 
     block.innerHTML = `
+<div class="section hero-container" data-section-status="loaded" style="">
   <div class="hero-wrapper">
     <div class="hero block" data-block-name="hero" data-block-status="loaded">
       <div>
@@ -65,6 +66,7 @@ export default async function decorate(block) {
       </div>
     </div>
   </div>
+</div>
   `;
 
 }
