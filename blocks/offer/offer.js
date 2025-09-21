@@ -57,6 +57,7 @@ export default async function decorate(block) {
       </div>
       <div>
         <div class="default-content-wrapper">
+          <h1 id="${cfReq.headline}">${cfReq.headline}</h1>
           <p data-aue-prop="headline" data-aue-label="headline" data-aue-type="text" class='pretitle'>${cfReq.headline}</p>
           <p data-aue-prop="pretitle" data-aue-label="pretitle" data-aue-type="text" class='headline'>${cfReq.pretitle}</p>
           <p data-aue-prop="detail" data-aue-label="detail" data-aue-type="richtext" class='detail'>${cfReq.detail.plaintext}</p>
