@@ -17,7 +17,7 @@ export default async function decorate(block) {
 
 
 
-  
+  /*
   const cfReq = await fetch(url,options)
     .then((response) => response.json())
     .then((contentfragment) => {
@@ -27,6 +27,13 @@ export default async function decorate(block) {
       }
       return offer;
     });
+*/
+
+  
+const cfReq = await fetch(url, options)
+  .then((response) => response.json())
+  .then((data) => data?.data?.recipe2ByPath?.item || {});
+  
 
   const itemId = `urn:aemconnection:${offerpath}/jcr:content/data/master`;
 
