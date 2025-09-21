@@ -51,7 +51,7 @@ export default async function decorate(block) {
             <source type="image/webp" srcset="${imageBase}&width=2000&format=webp&optimize=medium" media="(min-width: 600px)">
             <source type="image/webp" srcset="${imageBase}&width=750&format=webp&optimize=medium">
             <source type="image/jpeg" srcset="${imageBase}&width=2000&format=jpg&optimize=medium" media="(min-width: 600px)">
-            <img loading="eager" alt="${altText}" src="${imageBase}&width=750&format=jpg&optimize=medium" width="2623" height="878">
+            <img loading="eager" alt="XXXXX" src="${imageBase}&width=750&format=jpg&optimize=medium" width="2623" height="878">
           </picture>
         </div>
       </div>
