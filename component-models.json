@@ -23,7 +23,7 @@
   "fields": [
     {
         "component": "aem-content-fragment",
-        "name": "reference",
+        "name": "content-fragment-path",
         "value": "",
         "label": "Content Fragment path",
         "valueType": "string"
