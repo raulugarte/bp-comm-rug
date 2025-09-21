@@ -25,6 +25,7 @@
       "product-teaser",
       "product-recommendations",
       "teaser",
+      "offer",
       "contentfragment"
     ]
   },
@@ -41,7 +42,8 @@
       "fragment",
       "product-teaser",
       "product-recommendations",
-      "teaser"
+      "teaser",
+      "offer"
     ]
   },
   {
