@@ -189,10 +189,7 @@ export default async function decorate(block) {
 
 
   
-const cf = await fetch(url).then(res => res.json());
-const item = cf.data.recipe2ByPath.item;
-const attributeNames = Object.keys(item);
-console.log(attributeNames);
+
 
 
   
