@@ -27,7 +27,6 @@
         "value": "",
         "label": "Offer Content Fragment path",
         "valueType": "string"
-      }
     },
     {
       "component": "select",
