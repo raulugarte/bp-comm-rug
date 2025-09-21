@@ -4,12 +4,12 @@ export default async function decorate(block) {
   const aempublishurl = 'https://publish-p130407-e1279066.adobeaemcloud.com';
   const aemauthorurl = 'https://author-p130407-e1279066.adobeaemcloud.com';
   const persistedquery = '/graphql/execute.json/aldi-rug/recipe2ByPath';
-  const recipepath = block.querySelector(':scope div:nth-child(1) > div a').innerHTML.trim();
+  const contentfragmentpath = block.querySelector(':scope div:nth-child(1) > div a').innerHTML.trim();
   const variationname = block.querySelector(':scope div:nth-child(2) > div').innerHTML.trim();
 
   const url = window.location && window.location.origin && window.location.origin.includes('author')
-    ? `${aemauthorurl}${persistedquery};path=${recipepath};variation=${variationname};ts=${Math.random() * 1000}`
-    : `${aempublishurl}${persistedquery};path=${recipepath};variation=${variationname};ts=${Math.random() * 1000}`;
+    ? `${aemauthorurl}${persistedquery};path=${contentfragmentpath};variation=${variationname};ts=${Math.random() * 1000}`
+    : `${aempublishurl}${persistedquery};path=${contentfragmentpath};variation=${variationname};ts=${Math.random() * 1000}`;
   const options = { credentials: 'include' };
 
 
@@ -35,7 +35,7 @@ const cfReq = await fetch(url, options)
   .then((data) => data?.data?.recipe2ByPath?.item || {});
   
 
-  const itemId = `urn:aemconnection:${recipepath}/jcr:content/data/master`;
+  const itemId = `urn:aemconnection:${contentfragmentpath}/jcr:content/data/master`;
 
 
 
