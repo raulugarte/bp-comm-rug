@@ -161,13 +161,13 @@ export default async function decorate(block) {
         block.innerHTML = '';
       }
 
-	/*
-  if (!isAuthor) {
-    moveInstrumentation(block, null);
-    block.querySelectorAll('*').forEach((elem) => moveInstrumentation(elem, null));
-  }
-	*/
-}
+	//
+ // if (!isAuthor) {
+   // moveInstrumentation(block, null);
+  //  block.querySelectorAll('*').forEach((elem) => moveInstrumentation(elem, null));
+ // }
+	
+//}
 
 
 */
