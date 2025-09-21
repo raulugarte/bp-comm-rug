@@ -61,7 +61,7 @@ const cfReq = await fetch(url, options)
         <div class="default-content-wrapper">
           <h1 id="${cfReq.recipeTitle}">${cfReq.recipeTitle}</h1>
           <p data-aue-prop="headline" data-aue-label="headline" data-aue-type="text" class='pretitle'>${cfReq.recipeTitle}</p>
-          <p data-aue-prop="pretitle" data-aue-label="recipeDirections" data-aue-type="text" class='headline'>${cfReq.recipeDirections}</p>
+          <p data-aue-prop="pretitle" data-aue-label="recipeDirections" data-aue-type="text" class='headline'>${cfReq.recipeDirections.plaintext}</p>
           <p data-aue-prop="detail" data-aue-label="detail" data-aue-type="richtext" class='detail'>${cfReq.recipeDescription.plaintext}</p>
         </div>
       </div>
