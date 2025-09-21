@@ -19,7 +19,7 @@
   },
 
   {
-    "id": "offer",
+    "id": "contentfragment",
     "fields": [
       {
         "component": "aem-content",
