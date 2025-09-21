@@ -18,7 +18,7 @@ export default async function decorate(block) {
 
 
   
-  const cfReq = await fetch(url, options)
+  const cfReq = await fetch(url)
     .then((response) => response.json())
     .then((contentfragment) => {
       let offer = '';
