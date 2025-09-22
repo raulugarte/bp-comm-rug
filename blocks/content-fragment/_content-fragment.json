@@ -22,7 +22,7 @@
       "fields": [
         {          
           "component": "aem-content",
-          "name": "contentfragmentpath",
+          "name": "reference",
           "label": "Reference",
           "valueType": "string",
           "required": true,
